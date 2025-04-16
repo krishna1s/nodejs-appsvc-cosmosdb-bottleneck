@@ -30,25 +30,9 @@
             "dependsOn": [
                 "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections', parameters('databaseAccountId'), 'sampledatabase', 'samplecollection')]"
             ],
-            "resources": [
-                {
-                    "type": "siteextensions",
-                    "name": "Microsoft.ApplicationInsights.AzureWebSites",
-                    "apiVersion": "2015-08-01",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Web/Sites', parameters('webAppName'))]"
-                    ],
-                    "properties": {
-                    }
-                }
-            ],
             "properties": {
                 "siteConfig": {
                     "appSettings": [
-                        {
-                            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                            "value": "[reference(resourceId('microsoft.insights/components/', parameters('webAppName')), '2015-05-01').InstrumentationKey]"
-                        },
                         {
                             "name": "WEBSITE_NODE_DEFAULT_VERSION",
                             "value": "14.16.0"
@@ -61,8 +45,7 @@
                 "hostingEnvironment": ""
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                "[resourceId('microsoft.insights/components/', parameters('webAppName'))]"
+                "[resourceId('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
             ]
         },
         {
@@ -157,19 +140,6 @@
                 "resource": {
                     "throughput": 400
                 }
-            }
-        },
-        {
-            "type": "Microsoft.Insights/components",
-            "name": "[parameters('webAppName')]",
-            "apiVersion": "2014-04-01",
-            "location": "[parameters('appInsightsLocation')]",
-            "tags": {
-                "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('webAppName'))]": "Resource"
-            },
-            "properties": {
-                "applicationId": "[parameters('webAppName')]",
-                "Request_Source": "AzureTfsExtensionAzureProject"
             }
         },
         {
