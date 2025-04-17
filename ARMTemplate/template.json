@@ -21,28 +21,30 @@
     "resources": [
         {
             "type": "Microsoft.Web/sites",
-            "apiVersion": "2016-08-01",
+            "apiVersion": "2021-02-01",
             "name": "[parameters('webAppName')]",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
             ],
-            "tags": {
-                "[concat('hidden-related:', '/subscriptions/', subscription().subscriptionId,'/resourcegroups/', resourceGroup().name, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "empty"
-            },
             "properties": {
                 "siteConfig": {
                     "appSettings": [
                         {
                             "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                            "value": "14.16.0"
+                            "value": "16.13.0"
+                        },
+                        {
+                            "name": "CONNECTION_STRING",
+                            "value": "[listConnectionStrings(resourceId('Microsoft.DocumentDb/databaseAccounts', parameters('databaseAccountId')), '2015-04-08').connectionStrings[0].connectionString]"
+                        },
+                        {
+                            "name": "MSDEPLOY_RENAME_LOCKED_FILES",
+                            "value": "1"
                         }
-                    ],
-                    "phpVersion": "7.1"
+                    ]
                 },
-                "name": "[parameters('webAppName')]",
-                "serverFarmId": "[concat('/subscriptions/', subscription().subscriptionId,'/resourcegroups/', resourceGroup().name, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                "hostingEnvironment": ""
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
             }
         },
         {
@@ -134,7 +136,7 @@
             ],
             "properties": {
                 "resource": {
-                    "throughput": 1000
+                    "throughput": 400
                 }
             }
         },

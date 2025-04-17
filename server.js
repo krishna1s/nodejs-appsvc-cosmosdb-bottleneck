@@ -62,12 +62,12 @@ var server = http.createServer(function (req, res) {
         setTimeout(() => {
             let body = "";
             let entries = 0;
-            req.on('data', chunk => {
-                body += chunk;
-            })
+            // req.on('data', chunk => {
+            //     body += chunk;
+            // })
             req.on('end', () => {
-                console.log("add request body: " + body)
-                entries = parseInt(body) // 'Buy the milk'
+                // console.log("add request body: " + body)
+                entries = 1 // 'Buy the milk'
                 var counter = 0;
                 var success = 0;
                 console.log(entries)

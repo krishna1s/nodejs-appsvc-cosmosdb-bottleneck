@@ -1,5 +1,9 @@
-### Visit the website
-GET https://altdemo-ltres1.azurewebsites.net/
- 
-### Request to "get count"
+
+### GET request to /lasttimestamp
+GET https://altdemo-ltres1.azurewebsites.net/lasttimestamp
+
+POST https://altdemo-ltres1.azurewebsites.net/add
+Content-Type: application/json
+
+### GET request to /get
 GET https://altdemo-ltres1.azurewebsites.net/get
