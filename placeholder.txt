@@ -1,0 +1,7 @@
+previous test run - https://portal.azure.com/#view/Microsoft_Azure_CloudNativeTesting/NewReport/testRunId/a74cd8df-b66b-4f5f-b325-37a3c0a1304e/resourceId/%2Fsubscriptions%2F59e0277d-2840-45ae-a269-ccb2467ec99d%2FresourceGroups%2Faltdemo-ltres1centralus-rg%2Fproviders%2FMicrosoft.LoadTestService%2Floadtests%2Faltdemo-ltrescentraluseuap/testId/9903bc9c-b4ff-4dae-add1-1c4eabd06044
+
+resource group - altdemo-ltres1centralus-rg
+
+Can you help me increse the RU throuhput to 1000 for my cosmos db
+
+Can you help me increse the RU throuhput to 1000 for my cosmos db using arm template in my repo and deploy to azure 

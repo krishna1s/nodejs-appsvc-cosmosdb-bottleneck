@@ -1,11 +1,5 @@
-### POST add
-POST https://kc-demo-sample-app.azurewebsites.net/add
-Content-Type: application/json
-
-{
-  "value": 1
-}
-
-### GET get
-GET https://kc-demo-sample-app.azurewebsites.net/get
-Content-Type: application/json
+### Visit the website
+GET https://altdemo-ltres1.azurewebsites.net/
+ 
+### Request to "get count"
+GET https://altdemo-ltres1.azurewebsites.net/get

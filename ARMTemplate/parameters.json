@@ -2,14 +2,20 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "name": {
-            "value": ""
+        "webAppName": {
+            "value": "altdemo-ltres1"
         },
-        "location": {
-            "value": ""
+        "hostingPlanName": {
+            "value": "altdemo-ltres1-host"
         },
-        "tags": {
-            "value": {}
+        "appInsightsLocation": {
+            "value": "centralus"
+        },
+        "databaseAccountId": {
+            "value": "altdemo-ltres1db"
+        },
+        "databaseAccountLocation": {
+            "value": "centralus"
         }
     }
 }
